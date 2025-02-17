@@ -1,5 +1,5 @@
 # Java_Learning  
-This repository is mainly for java learning within 5 months. By the end of this semester, the following targets must be achieved!  
+This repository is mainly for java learning within 6 months(2025.3.1~2025.8.1). By the end of this semester, the following targets must be achieved!  
 
 ## Learning Progress  
 - [ ]  **(3月)**: Java 基础 + 网络编程
