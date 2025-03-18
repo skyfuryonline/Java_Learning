@@ -221,6 +221,7 @@ public class Lab {
         double delta_y = 0.01;
         double accu = 0;
         // 双重循环计算二重积分
+//        二重积分的本质是对函数f(x,y)在区域D内的累加
         for (double x = begin_x; x <= end_x; x += delta_x) {
             for (double y = begin_y; y <= end_y; y += delta_y) {
                 accu += f3.apply(x, y) * delta_x * delta_y; // 累加函数值乘以面积微元
