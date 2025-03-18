@@ -8,6 +8,7 @@ import java.util.Arrays;
 import java.util.EnumMap;
 import java.util.Scanner;
 import java.util.concurrent.Delayed;
+import java.util.function.BiFunction;
 import java.util.function.Function;
 
 public class Lab {
@@ -212,16 +213,22 @@ public class Lab {
         //第二个公式积分结果为：-0.38177678482946154
         //1−cos1−sin1，也即：−0.381773
 
-        Function<Double, Double> f2 = x -> Math.sin(x)-Math.cos(x);
-        int begin_x = 0,end_x = 1;
-        double delta_x = 0.00001;
+        // 使用 BiFunction 来定义一个接受两个参数的函数
+        BiFunction<Double, Double, Double> f3 = (x, y) -> x * x + y * y;
+        int begin_x = -1,end_x = 1;
+        int begin_y = -1,end_y = 1;
+        double delta_x = 0.01;
+        double delta_y = 0.01;
         double accu = 0;
-        int index = 0;
-        while(begin_x+index*delta_x<=end_x){
-            accu += delta_x * f2.apply(begin_x+index*delta_x);
-            index+=1;
+        // 双重循环计算二重积分
+        for (double x = begin_x; x <= end_x; x += delta_x) {
+            for (double y = begin_y; y <= end_y; y += delta_y) {
+                accu += f3.apply(x, y) * delta_x * delta_y; // 累加函数值乘以面积微元
+            }
         }
         System.out.println("第三个公式积分结果为："+accu);
+        //第三个公式积分结果为：2.6668000000000163
+        // 8/3
     }
     static void task_10(){
 
