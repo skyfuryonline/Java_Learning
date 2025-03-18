@@ -1,11 +1,15 @@
 package Lab_1;
 
 import org.w3c.dom.ls.LSInput;
+
+import javax.sound.midi.SysexMessage;
 import java.io.IOError;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.EnumMap;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 import java.util.concurrent.Delayed;
 import java.util.function.BiFunction;
@@ -21,7 +25,8 @@ public class Lab {
 //        task_6();
 //        task_7();
 //        task_8();
-        task_9();
+//        task_9();
+        task_10();
     }
     static void task_1(){
         for(int i=1;i<=9;i++){
@@ -232,6 +237,29 @@ public class Lab {
         // 8/3
     }
     static void task_10(){
+        String sequence = "TAGGGATTAACCGTTATATATATATAGCCATGGATGGATCGATTATATAACCGTTATATATATATAGCCATGGATCGATTATA";
+        int origin = 16*sequence.length()/32;//单位是字节
 
+        //compress(String)逻辑
+        int n = sequence.length();
+        ArrayList<Pair> list = new ArrayList<>();
+        for(int i=0;i<n;){
+            char cur = sequence.charAt(i);
+            int count = 1;
+            while(i+count<sequence.length() && sequence.charAt(i+count)==cur){
+                count++;
+            }
+            list.add(new Pair(cur,count));
+            i+=count;
+        }
     }
 }
+class Pair{
+    char first;
+    int second;
+    public Pair(char first, int second) {
+        this.first = first;
+        this.second = second;
+    }
+}
+
