@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.EnumMap;
 import java.util.Scanner;
+import java.util.concurrent.Delayed;
+import java.util.function.Function;
 
 public class Lab {
     public static void main(String[] args) {
@@ -17,6 +19,8 @@ public class Lab {
 //        task_5();
 //        task_6();
 //        task_7();
+//        task_8();
+        task_9();
     }
     static void task_1(){
         for(int i=1;i<=9;i++){
@@ -174,6 +178,52 @@ public class Lab {
         //n=10000,估算的pi的值是： 3.1414926535900345
     }
     static void task_8(){
+        double delta = 0.0001;
+        double x = 1;
+        double f_ = (1/(1+Math.pow(Math.E,-0.085*(x+delta)))-1/(1+Math.pow(Math.E,-0.085*(x-delta))))/(2*delta);
+        System.out.println("微分是："+f_);
+        //微分是：0.021211663359665955
+    }
+    static void task_9(){
+        //尝试lambda表达式表示被积函数？
+//        Function<Double, Double> f1 = x -> 4/(1+x*x);
+//        int begin_x = 0,end_x = 1;
+//        double delta_x = 0.00001;
+//        double accu = 0;
+//        int index = 0;
+//        while(begin_x+index*delta_x<=end_x){
+//            accu += delta_x * f1.apply(begin_x+index*delta_x);
+//            index+=1;
+//        }
+//        System.out.println("第一个公式积分结果为："+accu);
+        //第一个公式积分结果为：3.141622653573155
+        //其实应该是pi?
+
+//        Function<Double, Double> f2 = x -> Math.sin(x)-Math.cos(x);
+//        int begin_x = 0,end_x = 1;
+//        double delta_x = 0.00001;
+//        double accu = 0;
+//        int index = 0;
+//        while(begin_x+index*delta_x<=end_x){
+//            accu += delta_x * f2.apply(begin_x+index*delta_x);
+//            index+=1;
+//        }
+//        System.out.println("第二个公式积分结果为："+accu);
+        //第二个公式积分结果为：-0.38177678482946154
+        //1−cos1−sin1，也即：−0.381773
+
+        Function<Double, Double> f2 = x -> Math.sin(x)-Math.cos(x);
+        int begin_x = 0,end_x = 1;
+        double delta_x = 0.00001;
+        double accu = 0;
+        int index = 0;
+        while(begin_x+index*delta_x<=end_x){
+            accu += delta_x * f2.apply(begin_x+index*delta_x);
+            index+=1;
+        }
+        System.out.println("第三个公式积分结果为："+accu);
+    }
+    static void task_10(){
 
     }
 }
