@@ -3,4 +3,4 @@ This repository is mainly for java learning within 6 months(2025.3.1~2025.8.1). 
 
 ## Java Labs
 ### Lab_1.Lab 1  
-[实验1指导书](Lab_1/实验一.pdf)  
+[实验1指导书](YNU-Lab/src/Lab_1/实验一.pdf)  

@@ -1,19 +1,9 @@
 package Lab_1;
 
-import org.w3c.dom.ls.LSInput;
-
-import javax.sound.midi.SysexMessage;
-import java.io.IOError;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.EnumMap;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Scanner;
-import java.util.concurrent.Delayed;
 import java.util.function.BiFunction;
-import java.util.function.Function;
 
 public class Lab {
     public static void main(String[] args) {
@@ -26,7 +16,7 @@ public class Lab {
 //        task_7();
 //        task_8();
 //        task_9();
-        task_10();
+//        task_10();
     }
     static void task_1(){
         for(int i=1;i<=9;i++){
